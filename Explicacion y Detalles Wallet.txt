@@ -1,0 +1,35 @@
+Ademas de los requerimientos se agregó un inicio de sesión y registro de usuarios nuevos. Existe un usuario administrador
+por defecto.
+	Administrador:
+	  username: admin
+	  password: pass123
+
+Cada usuario nuevo se almacena en un ArrayList de objetos User que contiene el nombre y contraseña de cada usuario. 
+Por defecto cada usuario tiene los mismos montos en su cuenta.
+
+La wallet se desarrolló pensando en tres fondos diferentes; la cuenta peso, cuenta euro y la cuenta dolar.
+Estos tres fondos están asociados a un usuario (básicamente una persona tiene tres saldos), aunque por defecto siempre 
+que se hace inicio de sesión se parte con los mismos montos en las tres cuentas. Se puede depositar (método deposit) 
+y retirar fondos (método withdraw) de forma intedependiente en cualquiera de las tres cuentas. También se reescribieron 
+los métodos toString para poder mostrar los saldos de los tres fondos de forma ordenada. Al convertir dinero de una moneda 
+a otra se resta el monto de la cuenta original (se reutiliza withdraw) y suma el valor ya convertido a la cuenta de la 
+moneda de destino (se reutiliza deposit). Para convertir de una moneda a otra se definió un enum con tasas de cambio fijas 
+y se accede a este valor con un getter. Si al querer convertir dinero se ingresa una moneda de destino inválida el método 
+devuele -1 por lo que el monto a convertir será devuelto en negativo, no muestra ningún error por consola.
+
+Las pruebas unitarias solo son del manejo de dinero. Se entiende depositar, retirar y convertir dinero. Se dejó fuera todo 
+lo que era inicio de sesión y display del menu ya que no eran requisito inicial de la actividad integradora.
+
+La wallet fue ordenada en paquetes según su funcionalidad que para mi era lo más intuitivo. Espero que se entienda
+la lógica que seguí al ordenarlo de esa forma.
+
+Profe en un comienzo quise nombrar todo en ingles, pero en algún momento el cansancio me ganó y empecé a nombrar en español sin
+darme cuenta. Por favor sepa perdonar ese spanglish tan ordinario que me quedó.
+
+Le agradecería si me pudiese dar un feedback sobre la lógica que usé para separar las clases que fue lo que más me costó. Todo lo
+que es principios SOLID, cohesión y acoplamiento me cuesta demasiado. Intenté separar y modularizar todo como pude, pero para mi
+lo más lógico es hacelo todo junto y me cuesta pensar de una forma diferente
+
+
+
+
